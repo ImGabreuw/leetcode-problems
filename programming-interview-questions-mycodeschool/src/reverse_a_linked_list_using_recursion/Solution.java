@@ -24,33 +24,50 @@ public class Solution {
      *
      */
 
-    Node head;
+    static class LinkedList {
 
-    public void reverse(Node node) {
-        if (node.next == null) {
-            head = node;
-            return;
+        private Node head;
+
+        public LinkedList(Node head) {
+            this.head = head;
         }
 
-        reverse(node.next);
+        public void reverse() {
+            reverse(this.head);
+        }
 
-        node.next.next = node;
-        node.next = null;
+        private void reverse(Node node) {
+            if (node.next == null) {
+                this.head = node;
+                return;
+            }
+
+            reverse(node.next);
+
+            node.next.next = node;
+            node.next = null;
+        }
+
+        public void print() {
+            Node current = this.head;
+            while (current != null) {
+                System.out.print(current.data + " ");
+                current = current.next;
+            }
+            System.out.println();
+        }
+
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        Node head = new Node(2);
+        head.append(4).append(3).append(6);
 
-        solution.head = new Node(2);
-        solution.head.append(4).append(3).append(6);
+        LinkedList list = new LinkedList(head);
 
-        solution.reverse(solution.head);
-
-       Node current = solution.head;
-       while (current != null) {
-           System.out.print(current.data + " ");
-           current = current.next;
-       }
+        list.print();
+        list.reverse();
+        list.print();
     }
 
 }
