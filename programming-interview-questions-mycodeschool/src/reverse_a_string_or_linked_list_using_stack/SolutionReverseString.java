@@ -2,7 +2,7 @@ package reverse_a_string_or_linked_list_using_stack;
 
 import java.util.Stack;
 
-public class Solution {
+public class SolutionReverseString {
 
     public String reverseString(String str) {
         Stack<Character> stack = new Stack<>();
@@ -19,9 +19,9 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        SolutionReverseString solutionReverseString = new SolutionReverseString();
 
-        String reversed = solution.reverseString("Hello World");
+        String reversed = solutionReverseString.reverseString("Hello World");
 
         System.out.println(reversed);
     }
